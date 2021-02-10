@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
+body #modal form input[type=submit], body #buttons #delete, body #buttons #newColumn, body #buttons #newRow {
+  cursor: pointer;
+  color: #dddddd;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: "Titillium Web", sans-serif;
+  height: 30px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  width: 110px;
+}
+body #modal form input[type=submit]:hover, body #buttons #delete:hover, body #buttons #newColumn:hover, body #buttons #newRow:hover {
+  background-color: #dddddd;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+body #modal form input[type=submit]:focus, body #buttons #delete:focus, body #buttons #newColumn:focus, body #buttons #newRow:focus {
+  outline: none;
+}
+
+body #modal form select, body #modal form input[type=text] {
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  font-size: 15px;
+  font-family: "Titillium Web", sans-serif;
+  height: 30px;
+  margin: 10px auto 10px auto;
+  width: 50%;
+}
+body #modal form select:focus, body #modal form input[type=text]:focus {
+  outline: none;
+}
+
+body #root table td[draggable=true], body #root table tr[draggable=true] {
+  background-color: #222831;
+  color: #dddddd;
+  opacity: 0.5;
+}
+
+body {
+  background-color: #222831;
+  color: #222831;
+  margin: 0;
+}
+body h1 {
+  color: #dddddd;
+  font-family: "Titillium Web", sans-serif;
+  text-align: center;
+}
+body #buttons {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(9, 110px);
+  margin: 20px auto 20px auto;
+  max-width: 1030px;
+}
+body #buttons #newRow {
+  background-color: #61b15a;
+  grid-column: 2/3;
+}
+body #buttons #newRow:hover {
+  color: #61b15a;
+}
+body #buttons #newColumn {
+  background-color: #11698e;
+  grid-column: 3/4;
+}
+body #buttons #newColumn:hover {
+  color: #11698e;
+}
+body #buttons #delete {
+  background-color: #bb2205;
+  grid-column: 8/9;
+  transform: scale(0);
+}
+body #buttons #delete:hover {
+  color: #bb2205;
+}
+body #modal {
+  background-color: #dddddd;
+  border: 2px solid 222831;
+  border-radius: 10px;
+  bottom: 0;
+  height: 246px;
+  left: 30%;
+  position: fixed;
+  right: 0;
+  transition: 0.5s ease-in-out;
+  transform: scale(0);
+  text-align: center;
+  top: 10%;
+  width: 400px;
+  z-index: 1;
+}
+body #modal form {
+  display: block;
+  margin: 10px;
+}
+body #modal form label {
+  display: block;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+}
+body #modal form input[type=text] {
+  cursor: text !important;
+}
+body #modal form select option {
+  font-family: "Titillium Web", sans-serif;
+}
+body #modal form input[type=submit] {
+  background-color: #ffd369;
+  color: #222831;
+  margin: 10px auto 10px auto;
+}
+body #modal form input[type=submit]:hover {
+  background-color: #222831 !important;
+  color: #ffd369;
+}
+body .active {
+  transform: scale(1) !important;
+}
+body #root {
+  background-color: #dddddd;
+  border-radius: 10px;
+  color: #222831 !important;
+  height: 480px;
+  margin: 0 auto 0 auto;
+  max-width: 990px;
+  overflow: auto;
+  padding: 10px;
+}
+body #root table {
+  border-collapse: collapse;
+}
+body #root table tr:nth-child(1) {
+  color: #222831;
+  font-weight: bold;
+  font-family: "Titillium Web", sans-serif;
+  margin: 0;
+  padding: 1px 2px 1px 2px;
+  text-align: center;
+}
+body #root table td {
+  border: 2px solid #222831;
+  cursor: text;
+  font-size: 15px;
+  height: 25px;
+  max-width: 180px;
+  margin: 0;
+  overflow: auto;
+  padding: 2px;
+  width: 180px;
+}
+body #root table td:first-child {
+  width: 60px;
+}
+body #root table td:first-child input[type=checkbox] {
+  cursor: pointer;
+  display: block;
+}
+body #root table .text {
+  text-align: left;
+}
+body #root table .number {
+  text-align: right;
+}
+body #overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: fixed;
+  right: 0;
+  transform: scale(0);
+  top: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */
