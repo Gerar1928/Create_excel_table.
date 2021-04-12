@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
 
-$primary-color: #dddddd;
+$primary-color: #ffffff;
 $secondary-color: #222831;
 $font-stack: 'Titillium Web', sans-serif;
 
@@ -48,15 +48,9 @@ $font-stack: 'Titillium Web', sans-serif;
 }
 
 body {
-    background-color: $secondary-color;
+    background-color: $primary-color;
     color: $secondary-color;
     margin: 0;
-    
-    h1 {
-        color: $primary-color;
-        font-family: $font-stack;
-        text-align: center;
-    }
 
     #buttons {
         display: grid;
@@ -152,6 +146,7 @@ body {
 
     #root {
         background-color: $primary-color;
+        border: $secondary-color 1px solid;
         border-radius: 10px;
         color: $secondary-color !important;
         height: 480px;
@@ -181,8 +176,8 @@ body {
                 cursor: text;
                 font-size: 15px;
                 height: 25px;
-                max-width: 180px;
                 margin: 0;
+                max-width: 180px;
                 overflow: auto;
                 padding: 2px;
                 width: 180px;

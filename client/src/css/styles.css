@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
 body #modal form input[type=submit], body #buttons #delete, body #buttons #newColumn, body #buttons #newRow {
   cursor: pointer;
-  color: #dddddd;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   font-size: 15px;
@@ -11,7 +11,7 @@ body #modal form input[type=submit], body #buttons #delete, body #buttons #newCo
   width: 110px;
 }
 body #modal form input[type=submit]:hover, body #buttons #delete:hover, body #buttons #newColumn:hover, body #buttons #newRow:hover {
-  background-color: #dddddd;
+  background-color: #ffffff;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 body #modal form input[type=submit]:focus, body #buttons #delete:focus, body #buttons #newColumn:focus, body #buttons #newRow:focus {
@@ -35,19 +35,14 @@ body #modal form select:focus, body #modal form input[type=text]:focus {
 
 body #root table td[draggable=true], body #root table tr[draggable=true] {
   background-color: #222831;
-  color: #dddddd;
+  color: #ffffff;
   opacity: 0.5;
 }
 
 body {
-  background-color: #222831;
+  background-color: #ffffff;
   color: #222831;
   margin: 0;
-}
-body h1 {
-  color: #dddddd;
-  font-family: "Titillium Web", sans-serif;
-  text-align: center;
 }
 body #buttons {
   display: grid;
@@ -79,7 +74,7 @@ body #buttons #delete:hover {
   color: #bb2205;
 }
 body #modal {
-  background-color: #dddddd;
+  background-color: #ffffff;
   border: 2px solid 222831;
   border-radius: 10px;
   bottom: 0;
@@ -123,7 +118,8 @@ body .active {
   transform: scale(1) !important;
 }
 body #root {
-  background-color: #dddddd;
+  background-color: #ffffff;
+  border: #222831 1px solid;
   border-radius: 10px;
   color: #222831 !important;
   height: 480px;
@@ -148,8 +144,8 @@ body #root table td {
   cursor: text;
   font-size: 15px;
   height: 25px;
-  max-width: 180px;
   margin: 0;
+  max-width: 180px;
   overflow: auto;
   padding: 2px;
   width: 180px;
