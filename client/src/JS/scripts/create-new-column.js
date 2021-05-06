@@ -1,5 +1,4 @@
 import { addHeaderAttrs, dataAttrs, setInitialRows } from './set-initial-rows.js';
-import { addDataToLocalStorage } from './cells-functions.js';
 
 const handleModal = () => {
     const overlay = document.getElementById('overlay');
@@ -21,20 +20,19 @@ const addNewCells = (text, type) => {
         const newCell = document.createElement('td');
         if (index === 0) {
             const setHeaderAttrs = addHeaderAttrs(text, type);
-            row.append(setHeaderAttrs(newCell));
+            row.appendChild(setHeaderAttrs(newCell));
         } else {
             const setDataAttrs = dataAttrs;
-            row.append(setDataAttrs(newCell, type));
+            row.appendChild(setDataAttrs(newCell, type));
         }
     };
 };
 
 const setNewColumn = (text, type) => {
-    const rows = [...document.querySelector('table').children];
+    const rows = [...document.querySelectorAll('tr')];
     const setNewCellsAttrs = addNewCells(text, type);
     rows.forEach(setNewCellsAttrs);
     handleModal();
-    addDataToLocalStorage();
 };
 
 const handleForm = (ev) => {

@@ -1,6 +1,6 @@
 describe('Create new table and add information', () => {
     it('Create new table', () => {
-        cy.visit('http://localhost:3000/');
+        cy.visit('/');
 
         cy.get('#newRow')
             .click();

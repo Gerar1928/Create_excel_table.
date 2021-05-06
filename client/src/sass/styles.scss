@@ -12,11 +12,12 @@ $font-stack: 'Titillium Web', sans-serif;
     font-size: 15px;
     font-family: $font-stack;
     height: 30px;
+    margin: 0 2px 0 2px;
     transition: background-color 0.5s ease, color 0.5s ease;
     width: 110px;
 
     &:hover {
-        background-color: $primary-color;
+        background-color: $secondary-color;
         transition: background-color 0.5s ease, color 0.5s ease;
     }
 
@@ -63,16 +64,18 @@ body {
             @extend %button;
             background-color: #61b15a;
             grid-column: 2 / 3;
-
-            &:hover { color: #61b15a; }
         }
 
         #newColumn {
             @extend %button;
             background-color: #11698e;
             grid-column: 3 / 4;
+        }
 
-            &:hover { color: #11698e; }
+        #save {
+            @extend %button; 
+            background-color: #ffcc29;
+            grid-column: 4 / 5;
         }
 
         #delete {
@@ -80,8 +83,6 @@ body {
             background-color: #bb2205;
             grid-column: 8 / 9;
             transform: scale(0);
-
-            &:hover { color: #bb2205; }
         }
 
     }
@@ -149,7 +150,7 @@ body {
         border: $secondary-color 1px solid;
         border-radius: 10px;
         color: $secondary-color !important;
-        height: 480px;
+        height: 330px;
         margin: 0 auto 0 auto;
         max-width: 990px;
         overflow: auto;
@@ -162,15 +163,17 @@ body {
                 @extend %draggable-element;
             }
 
-            tr:nth-child(1) {
-                color: $secondary-color;
-                font-weight: bold;
-                font-family: $font-stack;
-                margin: 0;
-                padding: 1px 2px 1px 2px;
-                text-align: center;
+            thead {
+                tr {
+                    color: $secondary-color;
+                    font-weight: bold;
+                    font-family: $font-stack;
+                    margin: 0;
+                    padding: 1px 2px 1px 2px;
+                    text-align: center;
+                }
             }
-    
+
             td {
                 border: 2px solid $secondary-color;
                 cursor: text;
@@ -202,6 +205,28 @@ body {
         }
     }
     
+    #pagination {
+        margin: 10px auto 0 auto;
+        max-width: 990px;
+
+        #page-buttons{
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        button {
+            @extend %button;
+            background-color: #d3d3d3;
+            color: $secondary-color;
+            overflow: auto;
+            width: 45px;
+
+            &:hover {
+                color: white;
+            }
+        }
+    }
+
     #overlay {
         background-color: rgba(0, 0, 0, 0.5);
         bottom: 0;

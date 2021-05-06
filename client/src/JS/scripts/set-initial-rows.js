@@ -1,5 +1,5 @@
 import { handleModal } from './create-new-column.js';
-import { addDataToLocalStorage } from './cells-functions.js';
+import { rowsArr } from './pagination.js';
 
 const selectAllBoxes = () => {
     const mainCheckbox = document.querySelector('.select-all');
@@ -15,9 +15,19 @@ const selectAllBoxes = () => {
     });
 };
 
-const appendRowsToTable = (row) => {
+const appendRowsToTable = (row, index) => {
     const table = document.querySelector('table');
-    table.append(row);
+
+    if (index === 0) {
+        const tableHead = document.createElement('thead');
+        tableHead.appendChild(row);
+        table.appendChild(tableHead);
+    } else {
+        const tableBody = document.createElement('tbody');
+        tableBody.appendChild(row);
+        rowsArr.push(row);
+        table.appendChild(tableBody);
+    }
 
     return table;
 };
@@ -88,7 +98,6 @@ const setInitialRows = (text, type) => {
     newRows.forEach(appendRowsToTable);
     handleModal();
     selectAllBoxes();
-    addDataToLocalStorage();
 };
 
 export {

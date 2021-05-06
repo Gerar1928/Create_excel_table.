@@ -3,7 +3,7 @@ const deleteCell = () => {
     const checkedCheckboxes = [...document.querySelectorAll('[type="checkbox"]')]
         .filter(checkbox => checkbox.checked)
         .forEach(checkbox => checkbox.className === 'select-all'
-            ? document.querySelectorAll('tr').forEach(row => row.remove())
+            ? [...document.querySelector('table').children].forEach(row => row.remove())
             : checkbox.parentElement.parentElement.remove());
         deleteBtn.classList.remove('active');
 };

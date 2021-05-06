@@ -3,6 +3,7 @@ import { handleModal, handleForm } from './scripts/create-new-column.js';
 import { handleDoubleClick, checkDataTypeEnter, handleRoot } from './scripts/cells-functions.js';
 import { dragoverFunc, dragStarFunc, dragEndFunc } from './scripts/drag-and-drop.js';
 import { handleDeleteBtn, deleteCell } from './scripts/delete-rows.js';
+import { handlePagination } from './scripts/pagination.js';
 
 const newRowBtn = document.getElementById('newRow');
 const newColumnBtn = document.getElementById('newColumn');
@@ -10,6 +11,7 @@ const deleteBtn = document.getElementById('delete');
 const overlay = document.getElementById('overlay');
 const newColumn = document.querySelector('form');
 const root = document.getElementById('root');
+const pageBtnContainer = document.getElementById('page-buttons');
 
 newRowBtn.addEventListener('click', setNewRow);
 newColumnBtn.addEventListener('click', handleModal);
@@ -23,3 +25,4 @@ root.addEventListener('dragover', dragoverFunc);
 root.addEventListener('dragstart', dragStarFunc);
 root.addEventListener('dragend', dragEndFunc);
 root.addEventListener('change', handleDeleteBtn);
+pageBtnContainer.addEventListener('click', handlePagination);

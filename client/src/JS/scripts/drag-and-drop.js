@@ -1,5 +1,3 @@
-import { addDataToLocalStorage } from './cells-functions.js';
-
 const createArrOfFirstcells = (row) => row.children[0];
 
 const addDragAttrToRows = (ev) => {
@@ -37,15 +35,17 @@ const insertColumn = (ev, draggable) => {
 };
 
 const moveRows = (ev, draggable) => {
-    const table = document.querySelector('table');
-    if (table.contains(ev.target)) {
+    const tableBody = document.querySelector('tbody');
+    if (tableBody.contains(ev.target)) {
         if (ev.target.className !== 'select-all') {
             if (ev.target.parentElement.className === 'first-row') {
-                table.insertBefore(draggable, table.children[1]);
-            } else if (table.lastChild.contains(ev.target)) {
-                table.append(draggable);
+                tableBody.insertBefore(draggable, tableBody.children[1]);
+            } else if (tableBody.lastChild.contains(ev.target)) {
+                tableBody.append(draggable);
             } else if (ev.target.parentElement.id !== 'root') {
-                table.insertBefore(draggable, ev.target.parentElement);
+                if (ev.target.nodeName !== 'INPUT') {
+                    tableBody.insertBefore(draggable, ev.target.parentElement);
+                }
             }
         }
     }
@@ -92,8 +92,6 @@ const dropColumn = () => {
             element.insertBefore(td, element.children[draggableIndex]);
         });
     }
-
-    addDataToLocalStorage();
 };
 
 const dragoverFunc = (ev) => {

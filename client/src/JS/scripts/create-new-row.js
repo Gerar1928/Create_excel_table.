@@ -1,6 +1,6 @@
 import { createCheckbox } from './set-initial-rows.js';
 import { handleModal } from './create-new-column.js';
-import { addDataToLocalStorage } from './cells-functions.js';
+import { setPagButtons, rowsArr } from './pagination.js';
 
 const addLastCellsAttrs = (newRow) => {
     return (cell) => {
@@ -15,24 +15,32 @@ const addLastCellsAttrs = (newRow) => {
     };
 };
 
-const createNewRow = (table) => {
+const createNewRow = (tableBody) => {
     const numOfRows = document.querySelector('table').children.length;
-    const lastRowCells = [...document.querySelectorAll('tr')[numOfRows - 1].children];
     const newRow = document.createElement('tr');
     const newCheckbox = createCheckbox();
     const setNewCellsAttrs = addLastCellsAttrs(newRow);
-    lastRowCells.forEach(setNewCellsAttrs);
-    table.append(newRow);
+
+    if (document.querySelector('tbody').childElementCount) {
+        const lastRowCells = [...document.querySelectorAll('tr')[numOfRows - 1].children];
+        lastRowCells.forEach(setNewCellsAttrs);
+    } else {
+        [...rowsArr[0].children].forEach(setNewCellsAttrs);
+    }
+
+    tableBody.appendChild(newRow);
     newRow.firstChild.appendChild(newCheckbox);
-    addDataToLocalStorage();
+    rowsArr.push(newRow);
+    setPagButtons();
 };
 
 const setNewRow = () => {
+    const tableBody = document.querySelector('tbody');
     const table = document.querySelector('table');
     const hasRows = table.children.length;
 
     hasRows
-        ? createNewRow(table)
+        ? createNewRow(tableBody)
         : handleModal();
 };
 

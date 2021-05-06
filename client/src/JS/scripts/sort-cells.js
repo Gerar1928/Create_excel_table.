@@ -1,5 +1,5 @@
 const appendColumn = (cell) => {
-    document.querySelector('table').append(cell);
+    document.querySelector('tbody').append(cell);
 };
 
 const appendSortedColumn = (sortableCells) => {

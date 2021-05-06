@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
-body #modal form input[type=submit], body #buttons #delete, body #buttons #newColumn, body #buttons #newRow {
+body #pagination button, body #modal form input[type=submit], body #buttons #delete, body #buttons #save, body #buttons #newColumn, body #buttons #newRow {
   cursor: pointer;
   color: #ffffff;
   border: none;
@@ -7,14 +7,15 @@ body #modal form input[type=submit], body #buttons #delete, body #buttons #newCo
   font-size: 15px;
   font-family: "Titillium Web", sans-serif;
   height: 30px;
+  margin: 0 2px 0 2px;
   transition: background-color 0.5s ease, color 0.5s ease;
   width: 110px;
 }
-body #modal form input[type=submit]:hover, body #buttons #delete:hover, body #buttons #newColumn:hover, body #buttons #newRow:hover {
-  background-color: #ffffff;
+body #pagination button:hover, body #modal form input[type=submit]:hover, body #buttons #delete:hover, body #buttons #save:hover, body #buttons #newColumn:hover, body #buttons #newRow:hover {
+  background-color: #222831;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
-body #modal form input[type=submit]:focus, body #buttons #delete:focus, body #buttons #newColumn:focus, body #buttons #newRow:focus {
+body #pagination button:focus, body #modal form input[type=submit]:focus, body #buttons #delete:focus, body #buttons #save:focus, body #buttons #newColumn:focus, body #buttons #newRow:focus {
   outline: none;
 }
 
@@ -55,23 +56,18 @@ body #buttons #newRow {
   background-color: #61b15a;
   grid-column: 2/3;
 }
-body #buttons #newRow:hover {
-  color: #61b15a;
-}
 body #buttons #newColumn {
   background-color: #11698e;
   grid-column: 3/4;
 }
-body #buttons #newColumn:hover {
-  color: #11698e;
+body #buttons #save {
+  background-color: #ffcc29;
+  grid-column: 4/5;
 }
 body #buttons #delete {
   background-color: #bb2205;
   grid-column: 8/9;
   transform: scale(0);
-}
-body #buttons #delete:hover {
-  color: #bb2205;
 }
 body #modal {
   background-color: #ffffff;
@@ -122,7 +118,7 @@ body #root {
   border: #222831 1px solid;
   border-radius: 10px;
   color: #222831 !important;
-  height: 480px;
+  height: 330px;
   margin: 0 auto 0 auto;
   max-width: 990px;
   overflow: auto;
@@ -131,7 +127,7 @@ body #root {
 body #root table {
   border-collapse: collapse;
 }
-body #root table tr:nth-child(1) {
+body #root table thead tr {
   color: #222831;
   font-weight: bold;
   font-family: "Titillium Web", sans-serif;
@@ -162,6 +158,23 @@ body #root table .text {
 }
 body #root table .number {
   text-align: right;
+}
+body #pagination {
+  margin: 10px auto 0 auto;
+  max-width: 990px;
+}
+body #pagination #page-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+body #pagination button {
+  background-color: #d3d3d3;
+  color: #222831;
+  overflow: auto;
+  width: 45px;
+}
+body #pagination button:hover {
+  color: white;
 }
 body #overlay {
   background-color: rgba(0, 0, 0, 0.5);

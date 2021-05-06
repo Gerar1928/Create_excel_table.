@@ -1,24 +1,6 @@
 import { sortCells } from './sort-cells.js';
 import { setDragAttrToRows } from './drag-and-drop.js';
 
-const addDataToLocalStorage = () => {
-    const tableContent = {
-        row: [...document.querySelector('table').children].map((row, rowIndex) => {
-            return {
-                id: rowIndex,
-                cells: [...row.children].filter(cell => cell.getAttribute('contenteditable'))
-                    .map(cell => {
-                        return {
-                            text: cell.textContent,
-                        };
-                    }),
-            };
-        }),
-    };
-
-    localStorage.setItem('tableContent', JSON.stringify(tableContent));
-};
-
 const isNumber = (ev, num) => {
     const re = /^[0-9]+$/;
     if (!re.test(num)) {
@@ -84,5 +66,5 @@ const handleRoot = (ev) => {
 };
 
 export {
-    handleDoubleClick, checkDataTypeEnter, handleRoot, addDataToLocalStorage,
+    handleDoubleClick, checkDataTypeEnter, handleRoot,
     };
