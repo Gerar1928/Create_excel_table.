@@ -1,12 +1,19 @@
-const appendColumn = (cell) => {
-    document.querySelector('tbody').append(cell);
-};
+import { rowsArr } from './pagination.js';
 
 const appendSortedColumn = (sortableCells) => {
     [...document.querySelectorAll('tr:not(.first-row)')].forEach(row => {
         row.remove();
     });
-    sortableCells.forEach(appendColumn);
+
+    if (rowsArr.length < 9) {
+        for (let i = 0; i < rowsArr.length; i++) {
+            document.querySelector('tbody').append(sortableCells[i]);
+        }
+    } else {
+        for (let i = 0; i < 9; i++) {
+            document.querySelector('tbody').append(sortableCells[i]);
+        }
+    }
 };
 
 const sortNumbers = (sortOrder, index) => {
@@ -22,14 +29,14 @@ const sortNumbers = (sortOrder, index) => {
 };
 
 const sortLowestToHighest = (index) => {
-    const sortableCells = [...document.querySelectorAll('tr:not(.first-row)')];
+    const sortableCells = rowsArr;
     const setSortNumber = sortNumbers('asc', index);
     sortableCells.sort(setSortNumber);
     appendSortedColumn(sortableCells);
 };
 
 const sortHighestToLowest = (index) => {
-    const sortableCells = [...document.querySelectorAll('tr:not(.first-row)')];
+    const sortableCells = rowsArr;
     const setSortNumber = sortNumbers('desc', index);
     sortableCells.sort(setSortNumber);
     appendSortedColumn(sortableCells);
@@ -46,14 +53,14 @@ const sortLetters = (index) => {
 };
 
 const sortAZ = (index) => {
-    const sortableCells = [...document.querySelectorAll('tr:not(.first-row)')];
+    const sortableCells = rowsArr;
     const setSortLetters = sortLetters(index);
     sortableCells.sort(setSortLetters);
     appendSortedColumn(sortableCells);
 };
 
 const sortZA = (index) => {
-    const sortableCells = [...document.querySelectorAll('tr:not(.first-row)')];
+    const sortableCells = rowsArr;
     const setSortLetters = sortLetters(index);
     sortableCells.reverse(setSortLetters);
     appendSortedColumn(sortableCells);
